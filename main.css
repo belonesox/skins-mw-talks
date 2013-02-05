@@ -323,11 +323,12 @@ body {
   float:right;
 	top: 7px; 
 	right: 7px;
-	width: 185px;
+	width: 256px;
 	background: #FBFCFD;
 	padding: 5px;
-	font-size: 70%;
+	font-size: 120%;
 	border: 1px dashed #FFC000;
+    clear:both;
 }
 
 #block-catlinks {
@@ -335,10 +336,10 @@ body {
   float:left;
 	top: 7px; 
 	right: 7px;
-	width: 185px;
+	width: 256px;
 	background: #FBFCFD;
 	padding: 5px;
-	font-size: 200%;
+	font-size: 120%;
 	border: 1px dashed #FFC000;
 
     background-color: #F2F6FF; /* very light blue */
