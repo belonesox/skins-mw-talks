@@ -50,6 +50,9 @@ class TalksTemplate extends QuickTemplate {
     lang="<?php $this->text('lang') ?>" 
     dir="<?php $this->text('dir') ?>">
     <head>
+<!--[if lt IE 9]>
+<script src="<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/html5/html5shiv.js"></script>
+<![endif]-->        
         <meta http-equiv="Content-Type" 
               content="<?php $this->text('mimetype') ?>; 
               charset=<?php $this->text('charset') ?>" />

@@ -32,7 +32,7 @@ code {
 acronym, abbr, span.caps {
 	font-size: 0.9em;
 	letter-spacing: .07em;
-	}
+}
 
 /* Links -------------------------------------------------------------*/
 a {color: #2153B0;} /* blue */
