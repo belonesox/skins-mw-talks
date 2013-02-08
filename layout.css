@@ -1,0 +1,104 @@
+/*
+-----------------------------------------------------
+MediaWiki 'Talks' style sheet
+Author:		stas-fomin@yandex.ru
+-----------------------------------------------------
+*/
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { 
+    display: block;
+}
+
+body {
+	background: #FFF url(background.png); 
+}
+
+body {
+	background-color: rgba(255, 255, 255, 0.43); 
+	color: #333; /* dark grey */
+	font-family: 'Calibri', Verdana, Arial, Sans-Serif;
+	font-size: 120%;
+    line-height: 120%;  	
+}
+
+#global-wrapper {
+	margin-left: auto;
+	margin-right: auto;
+    width: 1360px;
+}
+
+#column-content {
+    margin-left: auto;
+    margin-right: auto;
+    background: #FFFFFF;
+    padding: 10px;
+    border: 1px dashed #FFC000;
+    width: 1024px;
+    font-size: 130%;
+    float: left;
+}
+
+#block-side {
+    float:right;
+	top: 7px; 
+	right: 7px;
+	width: 300px;
+}
+
+
+#block-search {
+	background: #FBFCFD;
+	padding: 5px;
+	font-size: 120%;
+	border: 1px dashed #FFC000;
+    margin: 32px;
+}
+
+#searchInput {
+	width: 90%;
+}
+
+#block-catlinks {
+    background: #FBFCFD;
+    padding: 5px;
+    font-size: 120%;
+    border: 1px dashed #FFC000;
+
+    background-color: #F2F6FF; /* very light blue */
+    border: 1px solid #CBDDFF; /* light blue */
+    margin: 32px;
+}
+
+
+@media screen and (max-width: 1360px) {
+    #column-content {
+        width: 90%;
+    }
+
+    #block-side {
+          width: 80%;
+          float: none;
+          margin: 32px auto;    
+    }    
+
+    #global-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+}
+
+
+#titleBar {
+	height: 100px;
+	width: 100%;
+	text-align: left;
+}
+
+#footer {
+	clear: both;
+	height: 5em;
+	margin: 3em 0 3em 200px;
+}
+
+    

@@ -52,6 +52,7 @@ class TalksTemplate extends QuickTemplate {
     <head>
 <!--[if lt IE 9]>
 <script src="<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/html5/html5shiv.js"></script>
+<script src="<?php $this->text('stylepath') ?>/<?php $this->text('stylename') ?>/html5/css3-mediaqueries.js"></script>
 <![endif]-->        
         <meta http-equiv="Content-Type" 
               content="<?php $this->text('mimetype') ?>; 
@@ -100,27 +101,29 @@ class TalksTemplate extends QuickTemplate {
   <body <?php if($this->data['body_ondblclick']) { ?>ondblclick="<?php $this->text('body_ondblclick') ?>"<?php } ?>
         <?php if($this->data['body_onload'    ]) { ?>onload="<?php     $this->text('body_onload')     ?>"<?php } ?>
         <?php if($this->data['nsclass'        ]) { ?>class="<?php      $this->text('nsclass')         ?>"<?php } ?>>
-  <div id="globalWrapper">
+  <div id="global-wrapper">
+  <div id="block-side">
       <?php if($this->data['catlinks']) { ?><div id="block-catlinks"><?php       $this->html('catlinks') ?></div><?php } ?>
 
-  <div id="block-search">
-  	<div id="p-search" class="portlet">
-  	  <h5><label for="searchInput"><?php $this->msg('search') ?></label></h5>
-  	  <div class="pBody">
-  	    <form name="searchform" action="<?php $this->text('searchaction') ?>" id="searchform">
-  	      <input id="searchInput" name="search" type="text"
-  	        <?php if($this->haveMsg('accesskey-search')) {
-  	          ?>accesskey="<?php $this->msg('accesskey-search') ?>"<?php }
-  	        if( isset( $this->data['search'] ) ) {
-  	          ?> value="<?php $this->text('search') ?>"<?php } ?> />
-  	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
-  	        value="<?php $this->msg('go') ?>"
-  	        />&nbsp;<input type='submit' name="fulltext"
-  	        class="searchButton"
-  	        value="<?php $this->msg('search') ?>" />
-  	    </form>
-  	  </div>
-  	</div>
+      <div id="block-search">
+        <div id="p-search" class="portlet">
+          <h5><label for="searchInput"><?php $this->msg('search') ?></label></h5>
+          <div class="pBody">
+            <form name="searchform" action="<?php $this->text('searchaction') ?>" id="searchform">
+              <input id="searchInput" name="search" type="text"
+                <?php if($this->haveMsg('accesskey-search')) {
+                  ?>accesskey="<?php $this->msg('accesskey-search') ?>"<?php }
+                if( isset( $this->data['search'] ) ) {
+                  ?> value="<?php $this->text('search') ?>"<?php } ?> />
+              <input type='submit' name="go" class="searchButton" id="searchGoButton"
+                value="<?php $this->msg('go') ?>"
+                />&nbsp;<input type='submit' name="fulltext"
+                class="searchButton"
+                value="<?php $this->msg('search') ?>" />
+            </form>
+          </div>
+        </div>
+      </div>
   </div>
   
     <div id="column-content">
