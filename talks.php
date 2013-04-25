@@ -256,6 +256,7 @@ class TalksTemplate extends QuickTemplate {
       <div class="visualClear"></div>
       </div>
     </div>
+<?php $this->html('bottomscripts'); /* JS call to runBodyOnloadHook */ ?>
   </body>
 </html>
 <?php
