@@ -196,17 +196,7 @@ tt {
 
 /* Content -----------------------------------------------------------*/
 /* BEGIN Table of Contents */
-#toc {
-	float: right;
-	margin: 0 0 1em 1em;
-	}
-#toc td {padding: 0.5em;}
-#toc .tocindent {margin-left: 1em;}
-#toc .tocline {margin-bottom: 0px;}
-#toc p {margin: 0}
-
-#toc div.paragraph {margin: 0}
-#toc .editsection {margin-top: 0.7em;}
+.toc, #toc { display: none; }
 /* END Table of Contents */
 
 
