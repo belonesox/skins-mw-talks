@@ -42,9 +42,10 @@ class SkinTalks extends SkinTemplate {
 			$t = $embed . implode( "{$pop}{$embed}" , $allCats['normal'] ) . $pop;
 
 			$msg = wfMsgExt( 'pagecategories', array( 'parsemag', 'escapenoentities' ), count( $allCats['normal'] ) );
-			$s .= '<div id="mw-normal-catlinks">' .
-				Linker::link( Title::newFromText( wfMsgForContent( 'pagecategorieslink' ) ), $msg )
-				. $colon . '<ul>' . $t . '</ul>' . '</div>';
+			$s .= '<div id="mw-normal-catlinks">'
+				#. Linker::link( Title::newFromText( wfMsgForContent( 'pagecategorieslink' ) ), $msg )
+				#. $colon
+				. '<ul>' . $t . '</ul>' . '</div>';
 		}
 
 		# optional 'dmoz-like' category browser. Will be shown under the list
@@ -104,9 +105,10 @@ class TalksTemplate extends QuickTemplate {
 			$t = $embed . implode( "{$pop}{$embed}" , $allCats['normal'] ) . $pop;
 
 			$msg = wfMsgExt( 'pagecategories', array( 'parsemag', 'escapenoentities' ), count( $allCats['normal'] ) );
-			$s .= '<div id="mw-normal-catlinks">' .
-				Linker::link( Title::newFromText( wfMsgForContent( 'pagecategorieslink' ) ), $msg )
-				. $colon . '<ul>' . $t . '</ul>' . '</div>';
+			$s .= '<div id="mw-normal-catlinks">'
+#				. Linker::link( Title::newFromText( wfMsgForContent( 'pagecategorieslink' ) ), $msg )
+				#. $colon
+				. '<ul>' . $t . '</ul>' . '</div>';
 		}
 
 		# Hidden categories
@@ -252,6 +254,7 @@ class TalksTemplate extends QuickTemplate {
         	  </div>
       	</div>
       </div>
+	  <?php if ($this->getTitle()->getNamespace() == 0 ) { ?>
 		<div id="block-disqus">
 				<div id="disqus_thread"></div>
 				<script type="text/javascript">
@@ -266,6 +269,7 @@ class TalksTemplate extends QuickTemplate {
 					})();
 				</script>
 		</div>
+	  <?php } ?>
 
       <div class="visualClear"></div>
       </div>
@@ -273,6 +277,7 @@ class TalksTemplate extends QuickTemplate {
 <?php $this->html('bottomscripts'); /* JS call to runBodyOnloadHook */ ?>
 
 
+<?php if ($this->getTitle()->getNamespace() == 0) { ?>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
@@ -285,6 +290,8 @@ class TalksTemplate extends QuickTemplate {
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
     </script>
+<?php } ?>
+
   </body>
 </html>
 <?php
