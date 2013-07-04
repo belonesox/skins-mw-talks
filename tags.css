@@ -214,7 +214,8 @@ tt {
 #catlinks {
     background-color: #F2F6FF; /* very light blue */
     border: 1px solid #CBDDFF; /* light blue */
-    margin: 1em 0;
+    margin: 0.5em;
+    padding: 0.5em;
 	}
 
 #catlinks p {margin: 0.5em;}

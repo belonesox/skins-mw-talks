@@ -47,6 +47,13 @@ body {
 	width: 300px;
 }
 
+#block-disqus {
+    float:right;
+	top: 7px; 
+	right: 7px;
+	width: 300px;
+}
+
 
 #block-search {
 	background: #FBFCFD;
@@ -61,14 +68,7 @@ body {
 }
 
 #block-catlinks {
-    background: #FBFCFD;
-    padding: 5px;
     font-size: 120%;
-    border: 1px dashed #FFC000;
-
-    background-color: #F2F6FF; /* very light blue */
-    border: 1px solid #CBDDFF; /* light blue */
-    margin: 32px;
 }
 
 
@@ -88,6 +88,13 @@ body {
         margin-right: auto;
         width: 100%;
     }
+	
+	#block-disqus {
+          width: 80%;
+          float: none;
+          margin: 32px auto;    
+	}
+	
 }
 
 

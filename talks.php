@@ -235,7 +235,6 @@ class TalksTemplate extends QuickTemplate {
         </div>
       </div>
   </div>
-  
     <div id="column-content">
       	<div id="content">
 	         <a name="top" id="contentTop"></a>
@@ -247,17 +246,45 @@ class TalksTemplate extends QuickTemplate {
         	    <?php if($this->data['newtalk'] ) { ?><div class="usermessage"><?php $this->html('newtalk')  ?></div><?php } ?>
         	    <!-- start content -->
         	    <?php $this->html('bodytext') ?>
-        	    <?php if($this->data['catlinks']) { ?><div id="catlinks"><?php       $this->html('catlinks') ?></div><?php } ?>
+        	    <?php if($this->data['catlinks']) { ?><?php       $this->html('catlinks') ?><?php } ?>
         	    <!-- end content -->
         	    <div class="visualClear"></div>
         	  </div>
       	</div>
       </div>
+		<div id="block-disqus">
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
+				
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+		</div>
 
       <div class="visualClear"></div>
       </div>
     </div>
 <?php $this->html('bottomscripts'); /* JS call to runBodyOnloadHook */ ?>
+
+
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+    </script>
   </body>
 </html>
 <?php
