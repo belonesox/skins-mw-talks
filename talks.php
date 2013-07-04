@@ -167,6 +167,7 @@ class TalksTemplate extends QuickTemplate {
               content="<?php $this->text('mimetype') ?>; 
               charset=<?php $this->text('charset') ?>" />
         <?php $this->html('headlinks') ?>
+		<meta name="google-site-verification" content="sHlNK3kKz6h9lOtR8ftJdOpRpBXQmDp-uTzED1bQIJc" />		
         <title><?php $this->text('pagetitle') ?></title>
 		<style type="text/css" media="screen, projection">/*<![CDATA[*/
 			@import "<?php $this->text('stylepath') ?>/common/shared.css?<?php echo $GLOBALS['wgStyleVersion'] ?>";

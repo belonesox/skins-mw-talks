@@ -34,7 +34,7 @@ body {
     margin-right: auto;
     background: #FFFFFF;
     padding: 10px;
-    border: 1px dashed #FFC000;
+    /*border: 1px dashed #FFC000;*/
     width: 1024px;
     font-size: 110%;
     float: left;

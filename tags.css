@@ -14,7 +14,7 @@ body {
 }
 
 blockquote {
-	padding: 3px;
+	padding: 1em;
 	border: 1px dotted #FFC000;
 }
 
@@ -91,7 +91,7 @@ a:hover {color: #173A7B;} /* dark blue */
 
 /* Headers -----------------------------------------------------------*/
 /*h1, h2, h3, h4 {font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;}*/
-/*h1, h2, h3, h4 {font-family: Verdana, Arial, Sans-Serif;}*/
+h1, h2, h3, h4 {font-family: Candara, Serif}
 h1, h2 {border-bottom: 1px dotted #333333;  line-height: 1.1em; padding-bottom: 0.2em;}
 
 .firstHeading {border-bottom-style: solid; border-bottom-color: #d5d5d5; font-size: 1.8em; color: #1860AC}
