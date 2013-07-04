@@ -85,68 +85,7 @@ class TalksTemplate extends QuickTemplate {
 	 *
 	 * @access private
 	 */
-	function getCategoryLinks() {
-		global $wgUseCategoryBrowser;
 
-		$out = $this->getOutput();
-
-		if ( count( $out->mCategoryLinks ) == 0 ) {
-			return '';
-		}
-
-		$embed = "<li>";
-		$pop = "</li>";
-
-		$allCats = $out->getCategoryLinks();
-		$s = '';
-		$colon = wfMsgExt( 'colon-separator', 'escapenoentities' );
-
-		if ( !empty( $allCats['normal'] ) ) {
-			$t = $embed . implode( "{$pop}{$embed}" , $allCats['normal'] ) . $pop;
-
-			$msg = wfMsgExt( 'pagecategories', array( 'parsemag', 'escapenoentities' ), count( $allCats['normal'] ) );
-			$s .= '<div id="mw-normal-catlinks">'
-#				. Linker::link( Title::newFromText( wfMsgForContent( 'pagecategorieslink' ) ), $msg )
-				#. $colon
-				. '<ul>' . $t . '</ul>' . '</div>';
-		}
-
-		# Hidden categories
-		if ( isset( $allCats['hidden'] ) ) {
-			if ( $this->getUser()->getBoolOption( 'showhiddencats' ) ) {
-				$class = 'mw-hidden-cats-user-shown';
-			} elseif ( $this->getTitle()->getNamespace() == NS_CATEGORY ) {
-				$class = 'mw-hidden-cats-ns-shown';
-			} else {
-				$class = 'mw-hidden-cats-hidden';
-			}
-
-			$s .= "<div id=\"mw-hidden-catlinks\" class=\"$class\">" .
-				wfMsgExt( 'hidden-categories', array( 'parsemag', 'escapenoentities' ), count( $allCats['hidden'] ) ) .
-				$colon . '<ul>' . $embed . implode( "{$pop}{$embed}" , $allCats['hidden'] ) . $pop . '</ul>' .
-				'</div>';
-		}
-
-		# optional 'dmoz-like' category browser. Will be shown under the list
-		# of categories an article belong to
-		if ( $wgUseCategoryBrowser ) {
-			$s .= '<br /><hr />';
-
-			# get a big array of the parents tree
-			$parenttree = $this->getTitle()->getParentCategoryTree();
-			# Skin object passed by reference cause it can not be
-			# accessed under the method subfunction drawCategoryBrowser
-			$tempout = explode( "\n", $this->drawCategoryBrowser( $parenttree ) );
-			# Clean out bogus first entry and sort them
-			unset( $tempout[0] );
-			asort( $tempout );
-			# Output one per line
-			$s .= implode( "<br />\n", $tempout );
-		}
-
-		return $s;
-	}
-	
 	
 	function execute() {
 
@@ -254,7 +193,9 @@ class TalksTemplate extends QuickTemplate {
         	  </div>
       	</div>
       </div>
-	  <?php if ($this->getTitle()->getNamespace() == 0 ) { ?>
+<?php
+	if ($this->getSkin()->getTitle()->getNamespace() == NS_MAIN) {
+?>
 		<div id="block-disqus">
 				<div id="disqus_thread"></div>
 				<script type="text/javascript">
@@ -269,7 +210,7 @@ class TalksTemplate extends QuickTemplate {
 					})();
 				</script>
 		</div>
-	  <?php } ?>
+<?php } ?>
 
       <div class="visualClear"></div>
       </div>
@@ -277,7 +218,9 @@ class TalksTemplate extends QuickTemplate {
 <?php $this->html('bottomscripts'); /* JS call to runBodyOnloadHook */ ?>
 
 
-<?php if ($this->getTitle()->getNamespace() == 0) { ?>
+<?php
+	if ($this->getSkin()->getTitle()->getNamespace() == NS_MAIN) {
+?>
     <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
@@ -291,7 +234,6 @@ class TalksTemplate extends QuickTemplate {
     }());
     </script>
 <?php } ?>
-
   </body>
 </html>
 <?php
