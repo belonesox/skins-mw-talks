@@ -196,16 +196,28 @@ class TalksTemplate extends QuickTemplate {
 <?php
 	if ($this->getSkin()->getTitle()->getNamespace() == NS_MAIN) {
 ?>
+
 		<div id="block-disqus">
+<script type="text/javascript">(function() {
+          if (window.pluso)if (typeof window.pluso.start == "function") return;
+          var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
+          s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+          s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
+          var h=d[g]('head')[0] || d[g]('body')[0];
+          h.appendChild(s);
+          })();</script>
+        <div data-user="2032391604" class="pluso" data-options="big,square,line,horizontal,counter,theme=04" data-services="facebook,twitter,vkontakte,google,email" data-background="#ebebeb"></div>			
 				<div id="disqus_thread"></div>
 				<script type="text/javascript">
 					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 					var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
+					var disqus_url = 'http://talks.rosalab.com/<?php $this->getSkin()->getTitle()->getArticleID() ?>';
 				
 					/* * * DON'T EDIT BELOW THIS LINE * * */
 					(function() {
 						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+//						dsq.src = '//localhost/projects/sites/talks/skins/talks/discus-embed.js';
 						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 					})();
 				</script>
@@ -221,18 +233,30 @@ class TalksTemplate extends QuickTemplate {
 <?php
 	if ($this->getSkin()->getTitle()->getNamespace() == NS_MAIN) {
 ?>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
+<!-- START: Livefyre Embed -->
+1111111111111111111
+<div id="livefyre-comments"></div>
+2222222222222222
+<script type="text/javascript" src="http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js"></script>
+<script type="text/javascript">
+(function () {
+    var articleId = fyre.conv.load.makeArticleId(null);
+    fyre.conv.load({}, [{
+        el: 'livefyre-comments',
+        network: "livefyre.com",
+        siteId: "338087",
+        articleId: articleId,
+        signed: false,
+        collectionMeta: {
+            articleId: articleId,
+            url: fyre.conv.load.makeCollectionUrl(),
+        }
+    }], function() {});
+}());
+</script>
+<!-- END: Livefyre Embed -->			
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
+
 <?php } ?>
   </body>
 </html>
