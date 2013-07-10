@@ -211,7 +211,7 @@ class TalksTemplate extends QuickTemplate {
 				<script type="text/javascript">
 					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 					var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
-					var disqus_url = 'http://talks.rosalab.com/<?php echo $this->getSkin()->getTitle()->getArticleID(); ?>';
+					var disqus_url = 'http://talks.rosalab.com/Special:ArticleByID/<?php echo $this->getSkin()->getTitle()->getArticleID(); ?>';
 				
 					/* * * DON'T EDIT BELOW THIS LINE * * */
 					(function() {
