@@ -211,7 +211,7 @@ class TalksTemplate extends QuickTemplate {
 				<script type="text/javascript">
 					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 					var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
-					var disqus_url = 'http://talks.rosalab.com/<?php $this->getSkin()->getTitle()->getArticleID() ?>';
+					var disqus_url = 'http://talks.rosalab.com/<?php echo $this->getSkin()->getTitle()->getArticleID(); ?>';
 				
 					/* * * DON'T EDIT BELOW THIS LINE * * */
 					(function() {
@@ -233,29 +233,6 @@ class TalksTemplate extends QuickTemplate {
 <?php
 	if ($this->getSkin()->getTitle()->getNamespace() == NS_MAIN) {
 ?>
-<!-- START: Livefyre Embed -->
-1111111111111111111
-<div id="livefyre-comments"></div>
-2222222222222222
-<script type="text/javascript" src="http://zor.livefyre.com/wjs/v3.0/javascripts/livefyre.js"></script>
-<script type="text/javascript">
-(function () {
-    var articleId = fyre.conv.load.makeArticleId(null);
-    fyre.conv.load({}, [{
-        el: 'livefyre-comments',
-        network: "livefyre.com",
-        siteId: "338087",
-        articleId: articleId,
-        signed: false,
-        collectionMeta: {
-            articleId: articleId,
-            url: fyre.conv.load.makeCollectionUrl(),
-        }
-    }], function() {});
-}());
-</script>
-<!-- END: Livefyre Embed -->			
-
 
 <?php } ?>
   </body>
