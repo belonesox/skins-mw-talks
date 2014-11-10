@@ -10,7 +10,7 @@ require_once('includes/SkinTemplate.php');
 
 /**
  * Inherit main code from SkinTemplate, set the CSS and template filter.
- * @todo document
+ * @todo document 
  * @package MediaWiki
  * @subpackage Skins
  */
@@ -23,7 +23,7 @@ class SkinTalks extends SkinTemplate {
 	}
 
 	function getCategoryLinks() {
-		global $wgUseCategoryBrowser;
+		global $wgUseCategoryBrowser, $wgScript;
 
 		$out = $this->getOutput();
 
@@ -35,18 +35,20 @@ class SkinTalks extends SkinTemplate {
 		$pop = "</li>";
 
 		$allCats = $out->getCategoryLinks();
+		
 		$s = '';
 		$colon = wfMsgExt( 'colon-separator', 'escapenoentities' );
 
+		$t = '';
 		if ( !empty( $allCats['normal'] ) ) {
 			$t = $embed . implode( "{$pop}{$embed}" , $allCats['normal'] ) . $pop;
-
-			$msg = wfMsgExt( 'pagecategories', array( 'parsemag', 'escapenoentities' ), count( $allCats['normal'] ) );
-			$s .= '<div id="mw-normal-catlinks">'
-				#. Linker::link( Title::newFromText( wfMsgForContent( 'pagecategorieslink' ) ), $msg )
-				#. $colon
-				. '<ul>' . $t . '</ul>' . '</div>';
-		}
+		}	
+		$s .= '<div id="mw-normal-catlinks">'
+			. '<ul>' 
+			. "<li>«<a href=" . $wgScript . ">"
+			#htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] )
+				. wfMessage( 'sitetitle' )->escaped() . "</a>»</li>"
+				.  $t . '</ul>' .'</div>';
 
 		# optional 'dmoz-like' category browser. Will be shown under the list
 		# of categories an article belong to
@@ -154,11 +156,13 @@ class TalksTemplate extends QuickTemplate {
         <?php if($this->data['nsclass'        ]) { ?>class="<?php      $this->text('nsclass')         ?>"<?php } ?>>
   <div id="global-wrapper">
   <div id="block-side">
-      <?php if($this->data['catlinks']) { ?><div id="block-catlinks"><?php       $this->html('catlinks') ?></div><?php } ?>
+      <?php if($this->data['catlinks']) { ?><div id="block-catlinks">
+			<?php       $this->html('catlinks') ?>
+	      	        <!-- <span style='font-size:200%;padding-right:20px'><a href="<?php $this->text('wgScript') ?>">&#x2302;</a></span> -->	
+			</div><?php } ?>
 
       <div id="block-search">
         <div id="p-search" class="portlet">
-          <h5><label for="searchInput"><?php $this->msg('search') ?></label></h5>
           <div class="pBody">
             <form name="searchform" action="<?php $this->text('searchaction') ?>" id="searchform">
               <input id="searchInput" name="search" type="text"
