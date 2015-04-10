@@ -47,7 +47,7 @@ body {
 	width: 300px;
 }
 
-#block-disqus {
+#block-disqus2 {
 	float:right;
 	top: 7px; 
 	right: 7px;
@@ -89,12 +89,13 @@ body {
         width: 100%;
     }
 	
-	#block-disqus {
-          width: 90%;
-          float: none;
-          margin: 32px auto;    
-	}
 	
+}
+
+#block-disqus {
+  width: 90%;
+  float: none;
+  margin: 32px auto;    
 }
 
 
