@@ -6,7 +6,7 @@ if( !defined( 'MEDIAWIKI' ) )
 	die();
 
 /** */
-require_once('includes/SkinTemplate.php');
+#require_once('includes/SkinTemplate.php');
 
 /**
  * Inherit main code from SkinTemplate, set the CSS and template filter.
@@ -26,15 +26,14 @@ class SkinTalks extends SkinTemplate {
 		global $wgUseCategoryBrowser, $wgScript;
 
 		$out = $this->getOutput();
+		$allCats = $out->getCategoryLinks();
 
-		if ( count( $out->mCategoryLinks ) == 0 ) {
+		if ( count( $allCats  ) == 0 ) {
 			return '';
 		}
 
 		$embed = "<li>";
 		$pop = "</li>";
-
-		$allCats = $out->getCategoryLinks();
 		
 		$s = '';
 		$colon = wfMsgExt( 'colon-separator', 'escapenoentities' );
@@ -119,7 +118,7 @@ class TalksTemplate extends QuickTemplate {
         </style>
 		<link rel="stylesheet" type="text/css" <?php if(empty($this->data['printable']) ) { ?>media="print"<?php } ?> href="<?php $this->text('stylepath') ?>/common/commonPrint.css?<?php echo $GLOBALS['wgStyleVersion'] ?>" />
 		
-		<?php print Skin::makeGlobalVariablesScript( $this->data ); ?>
+		<?php wfRunHooks( 'MakeGlobalVariablesScript', array( $this->data ) ); ?>
                 
 		<script type="<?php $this->text('jsmimetype') ?>" src="<?php $this->text('stylepath' ) ?>/common/wikibits.js?<?php echo $GLOBALS['wgStyleVersion'] ?>"><!-- wikibits js --></script>
 

@@ -1,0 +1,41 @@
+{
+	"name": "Talks",
+	"author": [
+		"Stas Fomin"
+	],
+	"url": " https://github.com/belonesox/skins-mw-talks",
+	"descriptionmsg": "Skin for wiki IT Talks",
+	"namemsg": "skinname-talks",
+	"license-name": "GPL-2.0+",
+	"type": "skin",
+	"ValidSkinNames": {
+		"talks": "Talks"
+	},
+	"SkinOOUIThemes": {
+		"talks": "Talks"
+	},
+	"MessagesDirs": {
+		"talks": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.talks.styles": {
+			"position": "top",
+			"styles": {
+				"main.css": {
+					"media": "screen"
+				}
+			}
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "Talks"
+	},
+	"AutoloadClasses": {
+		"SkinTalks": "talks.php",
+		"SkinTalksTemplate": "talks.php"
+	},
+	"manifest_version": 1
+}
