@@ -31,11 +31,11 @@
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
-		"remoteSkinPath": "Talks"
+		"remoteSkinPath": "talks"
 	},
 	"AutoloadClasses": {
-		"SkinTalks": "talks.php",
-		"SkinTalksTemplate": "talks.php"
+		"SkinTalks": "SkinTalks.php",
+		"TalksTemplate": "TalksTemplate.php"
 	},
 	"manifest_version": 1
 }
