@@ -29,7 +29,7 @@ class TalksTemplate extends BaseTemplate {
   <div id="block-background">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
 	<script>
-	 	debugger;
+	 	//debugger;
 	//	var globaldiv = document.getElementById('global-wrapper');
 	//    var dimensions = globaldiv.getClientRects()[0];
         var article_id = <?php echo $this->getSkin()->getTitle()->getArticleID(); ?>;
