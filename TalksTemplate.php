@@ -27,40 +27,39 @@ class TalksTemplate extends BaseTemplate {
 		$this->html( 'headelement' );
 		?>
   <div id="block-background">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
-	<script>
-	 	//debugger;
-	//	var globaldiv = document.getElementById('global-wrapper');
-	//    var dimensions = globaldiv.getClientRects()[0];
-        var article_id = <?php echo $this->getSkin()->getTitle()->getArticleID(); ?>;
-        var cell_size = 16 + (2^article_id % 84);
-        var variance = (2^article_id % 128)*1.0 / 128;
-        var stroke_width = (2^article_id % 128)*12.0 / 128;
-
-
-		var colorbrewer_names = ['YlGn', 'YlGnBu', 'GnBu', 'BuGn', 'PuBuGn', 'PuBu',
-								 //'BuPu',
-								 'RdPu',
-								 'PuRd', 'OrRd', 'YlOrRd', 'YlOrBr', 'Purples', 'Blues', 'Greens',
-                                 'Oranges', 'Reds', 'Greys', 'PuOr', 'BrBG', 'PRGn', 'PiYG',
-								 'RdBu', 'RdGy', 'RdYlBu', 'Spectral', 'RdYlGn', 'Accent', 'Dark2',
-								 'Paired', 'Pastel1', 'Pastel2', 'Set1', 'Set2', 'Set3'];
-
-        var color_name = colorbrewer_names[2^article_id % colorbrewer_names.length];
-
-		var pattern = Trianglify({
-			cell_size: cell_size,
-			variance: variance,
-			x_colors: color_name,
-			y_colors: 'match_x',
-			palette: Trianglify.colorbrewer,
-			stroke_width: stroke_width,
-			width: 2*window.innerWidth,
-			height: window.innerHeight*12
-		});
-		var svg_pattern = new XMLSerializer().serializeToString(pattern.svg());
-		var base64_pattern = window.btoa(svg_pattern);
-		document.body.style.backgroundImage = 'url("data:image/svg+xml;base64,' + base64_pattern  + '")';
+<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+-->	<script>
+        //var article_id = <?php echo $this->getSkin()->getTitle()->getArticleID(); ?>;
+//        var cell_size = 16 + (2^article_id % 84);
+//        var variance = (2^article_id % 128)*1.0 / 128;
+//        var stroke_width = (2^article_id % 128)*12.0 / 128;
+//
+//
+//		var colorbrewer_names = ['YlGn', 'YlGnBu', 'GnBu', 'BuGn', 'PuBuGn', 'PuBu',
+//								 //'BuPu',
+//								 'RdPu',
+//								 'PuRd', 'OrRd', 'YlOrRd', 'YlOrBr', 'Purples', 'Blues', 'Greens',
+//                                 'Oranges', 'Reds', 'Greys', 'PuOr', 'BrBG', 'PRGn', 'PiYG',
+//								 'RdBu', 'RdGy', 'RdYlBu', 'Spectral', 'RdYlGn', 'Accent', 'Dark2',
+//								 'Paired', 'Pastel1', 'Pastel2', 'Set1', 'Set2', 'Set3'];
+//
+//        var color_name = colorbrewer_names[2^article_id % colorbrewer_names.length];
+//
+//		var pattern = Trianglify({
+//			cell_size: cell_size,
+//			variance: variance,
+//			x_colors: color_name,
+//			y_colors: 'match_x',
+//			palette: Trianglify.colorbrewer,
+//			stroke_width: stroke_width,
+//			width: 2*window.innerWidth,
+//			height: window.innerHeight*12
+//		});
+//		var svg_pattern = new XMLSerializer().serializeToString(pattern.svg());
+//		var base64_pattern = window.btoa(svg_pattern);
+//		document.body.style.backgroundImage = 'url("data:image/svg+xml;base64,' + base64_pattern  + '")';
+		document.body.style.backgroundImage = 'url("/trianglify?id=<?php echo $this->getSkin()->getTitle()->getArticleID(); ?>")';
+		document.body.style.backgroundSize = '100%';
 	</script>
   <div>
   <div id="global-wrapper">
