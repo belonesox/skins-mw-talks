@@ -105,32 +105,29 @@ class TalksTemplate extends BaseTemplate {
         	  </div>
       	</div>
       </div>
+      <div class="visualClear"></div>
 
 <?php
-	if ($this->getSkin()->getTitle()->getNamespace() == NS_MAIN) {
+	if (in_array($this->getSkin()->getTitle()->getNamespace(), array(NS_MAIN, NS_BLOG))) {
 ?>
 		<div id="block-disqus" style="background-color: white; padding: 16px;">
-        <div data-user="2032391604" class="pluso" data-options="big,square,line,horizontal,counter,theme=04" data-services="facebook,twitter,vkontakte,google,email" data-background="#ebebeb"></div>			
-
-
-				<div id="disqus_thread"></div>
-				<script type="text/javascript">
-					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-					var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
-					var disqus_url = 'http://talks.rosalab.com/Special:ArticleByID/<?php echo $this->getSkin()->getTitle()->getArticleID(); ?>';
-				
-					/* * * DON'T EDIT BELOW THIS LINE * * */
-					(function() {
-						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-//						dsq.src = '//localhost/projects/sites/talks/skins/talks/discus-embed.js';
-						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-					})();
-				</script>
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				var disqus_shortname = 'rosatalks'; // required: replace example with your forum shortname
+				var disqus_url = 'http://0x1.tv/Special:ArticleByID/<?php echo $this->getSkin()->getTitle()->getArticleID(); ?>';
+			
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	//						dsq.src = '//localhost/projects/sites/talks/skins/talks/discus-embed.js';
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+			</script>
 		</div>
 <?php } ?>
 
-      <div class="visualClear"></div>
       </div>
     </div>
 
